@@ -1,0 +1,227 @@
+{
+  "info": {
+    "name": "Slack Status Switcher (No Fallback)",
+    "_postman_id": "0f3e8c8d-0b0b-4d61-9f3a-000000000001",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Debug - Status",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/debug/status",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "debug",
+            "status"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Arrive Company (force)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/event/arrive-company?force=true",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "event",
+            "arrive-company"
+          ],
+          "query": [
+            {
+              "key": "force",
+              "value": "true"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Leave Company",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/event/leave-company",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "event",
+            "leave-company"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Arrive Customer (force, with label)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"label\": \"ACME\"}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/event/arrive-customer?force=true",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "event",
+            "arrive-customer"
+          ],
+          "query": [
+            {
+              "key": "force",
+              "value": "true"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Leave Customer",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/event/leave-customer",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "event",
+            "leave-customer"
+          ]
+        }
+      }
+    },
+    {
+      "name": "10:00 Check (force)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/cron/check-10am?force=true",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "cron",
+            "check-10am"
+          ],
+          "query": [
+            {
+              "key": "force",
+              "value": "true"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "19:00 Cleanup",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/cron/cleanup-19",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "cron",
+            "cleanup-19"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Debug - State",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/debug/state",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "debug",
+            "state"
+          ]
+        }
+      }
+    }
+  ]
+}

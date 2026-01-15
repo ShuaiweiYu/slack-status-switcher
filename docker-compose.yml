@@ -1,0 +1,20 @@
+services:
+  slack-status-switcher:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - SLACK_USER_TOKEN=${SLACK_USER_TOKEN}
+      - API_KEY=${API_KEY}
+      - PORT=${PORT:-3000}
+      - STATUS_TEXT_OFFICE=${STATUS_TEXT_OFFICE:-在公司}
+      - STATUS_EMOJI_OFFICE=${STATUS_EMOJI_OFFICE:-:office:}
+      - STATUS_TEXT_HOME=${STATUS_TEXT_HOME:-在家办公}
+      - STATUS_EMOJI_HOME=${STATUS_EMOJI_HOME:-:house:}
+      - STATUS_TEXT_CUSTOMER=${STATUS_TEXT_CUSTOMER:-客户现场}
+      - STATUS_EMOJI_CUSTOMER=${STATUS_EMOJI_CUSTOMER:-:construction:}
+      - P0_TEXTS=${P0_TEXTS:-休假,病假,vacation,sick}
+      - CUSTOMER_INCLUDE_LABEL=${CUSTOMER_INCLUDE_LABEL:-true}
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped

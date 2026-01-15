@@ -1,0 +1,14 @@
+{
+  "name": "slack-status-switcher",
+  "version": "1.1.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "@slack/web-api": "^7.9.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
