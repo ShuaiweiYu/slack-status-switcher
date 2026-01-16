@@ -17,10 +17,14 @@ app.use(auth);
 app.use("/status", statusRoutes);
 
 // Debug Slack 状态
-app.get("/debug/status", async (req, res) => {
+app.get("/status", async (req, res) => {
   try {
     const status = await slackService.getStatus();
-    res.json({ ok: true, slack: status });
+    let has_status = true;
+    if (status.status_text === "") {
+      has_status = false;
+    }
+    res.json({ ok: true, has_status: has_status,slack: status });
   } catch (e) {
     res.status(500).json({ ok: false, error: e.message });
   }
